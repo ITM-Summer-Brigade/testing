@@ -6,10 +6,21 @@ service ImageBuilder {
     // Builds and deploys the image
     rpc BuildImage(ImageDetails) returns (FinishedImage) {}
     rpc DeployInfra(InfraDetails) returns (InfraDetails) {}
+    rpc CreateKeyPair(KeyDetails) returns (KeyPair) {}
 }
 
 // The details of the image
+message ImageDetails {
+    string node_name = 1;
+    string username = 2;
+    string proxmox_token = 3;
+    string url = 4;
+    int32 memory = 5;
+    int32 disk_size = 6;
+    int32 number_of_cores = 7;
+    string vm_name = 8;
 
+}
 // The details of the finished image
 
 // The details of the infrastructure the user wants to deploy
