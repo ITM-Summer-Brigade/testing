@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package testPackage;
+
+service ImageBuilder {
+    // Builds and deploys the image
+    rpc BuildImage(ImageDetails) returns (FinishedImage) {}
+    rpc DeployInfra(InfraDetails) returns (InfraDetails) {}
+}
+
+// The details of the image
+
+// The details of the finished image
+
+// The details of the infrastructure the user wants to deploy
+
+// The details of the infrastructure after its finished deploying
+

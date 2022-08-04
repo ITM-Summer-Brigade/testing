@@ -6,3 +6,4 @@ A developer portal that allows users to deploy infrastructure at the click of a 
 - gRPC
 - React/NextJs
 - Typescript
+- Terraform
