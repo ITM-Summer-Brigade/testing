@@ -1,5 +1,6 @@
 from concurrent import futures
 
+import os
 import grpc
 
 import test_pb2
@@ -11,7 +12,10 @@ class ImageBuilderServicer(test_pb2_grpc.ImageBuilderServicer):
 
     def BuildImage(self, request, context):
         print("Creating image")
+        # get information from request
         print("Request details:", request)
+        # build the image using packer build
+        os.system('echo Run build step')
         return test_pb2.FinishedImage(image_name = request.node_name)
 
     def DeployInfra(self, request, context):
@@ -19,6 +23,7 @@ class ImageBuilderServicer(test_pb2_grpc.ImageBuilderServicer):
 
     def CreateKeyPair(self, request, context):
         print("Generating your key pair")
+        # specify a file path and key name
 
 
 def serve():

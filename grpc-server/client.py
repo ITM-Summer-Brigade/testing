@@ -1,12 +1,12 @@
 from __future__ import print_function
 
-import random
-
+import sys
 import grpc
 import test_pb2, test_pb2_grpc
 
 def build_image(stub):
-    image = stub.BuildImage(test_pb2.ImageDetails(node_name='testnode'))
+    name = sys.argv[1]
+    image = stub.BuildImage(test_pb2.ImageDetails(node_name=name))
     if not image.image_name:
         print("Image details are missing")
         return
